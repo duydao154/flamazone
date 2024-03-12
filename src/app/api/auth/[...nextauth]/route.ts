@@ -21,6 +21,7 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
+  secret: env.SECRET,
   events: {
     async signIn({ user }) {
       await mergeAnonymousCartIntoUserCart(user.id);
