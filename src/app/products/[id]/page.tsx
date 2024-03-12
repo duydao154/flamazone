@@ -19,20 +19,6 @@ const getProduct = cache(async (id: string) => {
   return product;
 });
 
-export async function generateMetaData({
-  params: { id },
-}: ProductPageProps): Promise<Metadata> {
-  const product = await getProduct(id);
-
-  return {
-    title: product.name + " - Flowmazon",
-    description: product.description,
-    openGraph: {
-      images: [{ url: product.imageUrl }],
-    },
-  };
-}
-
 export default async function Productpage({
   params: { id },
 }: ProductPageProps) {
